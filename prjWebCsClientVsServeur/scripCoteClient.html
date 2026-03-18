@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        function Effacer()
+        {
+            document.getElementById("txtEmail").value = "";
+            document.getElementById("txtmotdepasse").value = "";
+            document.getElementById("parErreur").innerHTML = "";
+            document.getElementById("txtEmail").focus();
+        }
+
+        function Verifier()
+        {
+            let eml = document.getElementById("txtEmail").value;
+            let mdp = document.getElementById("txtmotdepasse").value;
+
+            if (eml == "") {
+                document.getElementById("parErreur").innerHTML = " Erreur : Email Obligatoire";
+                return;
+            }
+            if (mdp == "") {
+                document.getElementById("parErreur").innerHTML = " Erreur : Mot de passe Obligatoire";
+                return;
+            }
+            if (eml.indexOf("@") <= 0) {
+                document.getElementById("parErreur").innerHTML = " Erreur : Email invalide ";
+                document.getElementById("txtEmail").focus();
+                return;
+            }
+
+            
+
+            window.open("https://www.google.com", "_self");
+        }
+    </script>
+    <style type="text/css">
+        h1{text-align:center;}
+        table{
+            font-weight:bold;
+            width:400px;
+            margin:auto;
+            background-color:aquamarine;
+            border-radius:5px;
+            border-spacing:3px;
+        }
+        .boite {
+            width: 200px;
+            color: blue;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .button {
+            width: 150px;
+            color: white;
+            border-radius: 3px;
+            font-weight: bold;
+            background-color:saddlebrown;
+        }
+        #parErreur {
+            font-weight: bold;
+            color: red;
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>
+        SCRIPT COTE CLIENT <br />
+        java script
+    </h1>
+    <hr />
+    <table>
+        <tr>
+            <td>Entrez votre email : </td>
+            <td><input type="text" id="txtEmail" class="boite" /></td>
+        </tr>
+        <tr>
+            <td>Entrez Mot de passe : </td>
+            <td><input type="password" id="txtmotdepasse" class="boite" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="btnEntrer" value="Entrer" onclick="Verifier()" class="button" /></td>
+            <td><input type="button" id="btnEffacer" value="Recommencer" onclick="Effacer()" class="button" /></td>
+            
+        </tr>
+        <tr>
+            
+            <td colspan="2"><p  id="parErreur"></p></td>
+        </tr>
+    </table>
+
+</body>
+</html>
